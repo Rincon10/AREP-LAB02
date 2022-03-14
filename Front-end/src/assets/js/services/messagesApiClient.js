@@ -2,8 +2,10 @@ export const messagesApiClient = (() => {
     const urlRoundRobin = '';
 
     return {
-        getSomething: () => {
+        getMessages: () => {
             return 'dsad';
         },
+
+        postMessage: message => {},
     };
 })();

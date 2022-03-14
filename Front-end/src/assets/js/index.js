@@ -1,21 +1,23 @@
-import { messagesApiClient } from './services/messagesApiClient.js';
+import { messagesApiClient } from '../js/services/messagesApiClient.js';
 
 //========================Variables========================
 let formValues;
 
-const saveBtn = document.getElementById('save-btn');
+const form = document.getElementById('form');
 const getBtn = document.getElementById('get-btn');
 const textArea = document.getElementById('message');
 
 //========================Functions========================
 
 const saveMessage = event => {
-    console.log('entre');
-    event.preventDefault();
     const { value } = event.target;
     updateValues('message', value);
+};
+
+const postMessage = event => {
+    event.preventDefault();
     console.log(formValues);
-    messagesApiClient.getSomething();
+    console.log(messagesApiClient.getSomething());
 };
 
 const updateValues = (name, value) => {
@@ -33,17 +35,17 @@ const clearValues = () => {
 const clearHTML = () => {
     textArea.value = '';
     clearValues();
-    console.log('entre');
 };
 
 //========================EventsListeners==================
 setEventsListeners();
 
 function setEventsListeners() {
-    console.log('events');
     document.addEventListener('DOMContentLoaded', () => {
         clearHTML();
     });
 
-    saveBtn?.addEventListener('click', saveMessage);
+    textArea?.addEventListener('change', saveMessage);
+
+    form?.addEventListener('submit', postMessage);
 }
