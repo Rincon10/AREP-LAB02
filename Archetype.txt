@@ -1,4 +1,4 @@
-mvn archetype:generate -DgroupId=edu.escuelaing.arep -DartifactId=App -DarchetypeArtifactId=maven-archetype-quickstart
+mvn archetype:generate -DgroupId=edu.escuelaing.arep -DartifactId=Back-end -DarchetypeArtifactId=maven-archetype-quickstart
 
 mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.reflectionsexamples.InvokeMain" -Dexec.args="packageArg"
 mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.RunMyServer"

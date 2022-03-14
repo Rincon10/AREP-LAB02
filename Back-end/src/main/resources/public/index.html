@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Messages</title>
+
+</head>
+<body>
+    <center>
+        <h1>Ingresa el mensaje a guardar</h1>
+        <form id="form" action="" method="POST">
+            <div class="form-group col-md-6">
+                <label> Mensaje</label>
+                <textarea id="mensaje" class="form-control" style="height: 50vh;"></textarea>
+            </div>
+            <center>
+                <button id="save-btn" type="submit" class="btn btn-primary">Guardar</button>
+            </center>
+        </form>
+
+        <br />
+        <div id="div">
+            <h1>Consultar mensajes</h1>
+            <button id="get-btn" class="btn btn-outline-dark">Consultar</button>
+        </div>
+    </center>
+</body>
+</html>
