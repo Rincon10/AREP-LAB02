@@ -181,6 +181,7 @@ sudo usermod -a -G docker ec2-user
 exit para que se actualicen los permisos
 
 <img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/12-docker.jpg" />
+
 ## Para instalar JDK8
 
 Para tener java
@@ -224,4 +225,21 @@ en las reglas de entrada de seguridad lo configuramos con numero
 
 verificamos que podamos acceder a nuestro contenedor
 
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/16-accesoAWS.jpg" />
 
+
+Ahora procederemos a crear las 3 instancias que se encargaran de comunicarse con la base de datos 
+
+
+```
+docker run -d -p 35001:6000 --name firstlogservice maindockerimage
+```
+
+```
+docker run -d -p 35002:6000 --name secondlogservice maindockerimage
+```
+
+
+```
+docker run -d -p 35003:6000 --name thirdlogservice maindockerimage
+```
