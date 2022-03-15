@@ -51,15 +51,34 @@ mvn package -U
 mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.RunMyServer"
 ```
 
-<img src="" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/01-running-console.jpg" alt="running-project" />
 
+## Petición Get 
 
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="get" />
 
+## Petición Post
+
+### Petición desde insomnia
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="post" />
+<br />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="post-2" />
+
+### Verificando inserción
+
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="get-2" />
+
+### Revisando inserción desde MongoDb
+
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="MongoDb" />
 
 4. Generando la documentación del proyecto
 ```mvn
 mvn javadoc:javadoc
 ```
+
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/05-javadoc.jpg" alt="javadoc" />
+
 La documentación se generara en la ruta
 ```
 target/site/apidocs/index.html
