@@ -48,7 +48,7 @@ mvn package -U
 
 3. Ejecutamos el proyecto
 ```maven
-mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.RunMyServer"
+mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.App"
 ```
 
 <img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/01-running-console.jpg" alt="running-project" />
@@ -60,17 +60,17 @@ mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.RunMyServer"
 ## Petición Post
 
 ### Petición desde insomnia
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="post" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/03-post-petition-1.jpg" alt="post" />
 <br />
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="post-2" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/03-post-petition-2.jpg" alt="post-2" />
 
 ### Verificando inserción
 
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="get-2" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/03-post-petition-3.jpg" alt="get-2" />
 
 ### Revisando inserción desde MongoDb
 
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/02-get-petition.jpg" alt="MongoDb" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/04-mongodb.jpg" alt="MongoDb" />
 
 4. Generando la documentación del proyecto
 ```mvn
