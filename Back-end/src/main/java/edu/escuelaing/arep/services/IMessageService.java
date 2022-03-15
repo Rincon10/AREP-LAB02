@@ -11,7 +11,15 @@ import java.util.List;
  * @project Back-end
  */
 public interface IMessageService {
+    /**
+     * Method that insert a Message on the Mongo DB
+     * @param message, Message that is gonna be inserted
+     */
     public void postMessage( Message message);
 
+    /**
+     * Method that query all the messages from the Db
+     * @return List<String> List of messages on JsonFormat
+     */
     public List<String> getAllMessages();
 }
