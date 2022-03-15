@@ -232,14 +232,21 @@ Ahora procederemos a crear las 3 instancias que se encargaran de comunicarse con
 
 
 ```
-docker run -d -p 35001:6000 --name firstlogservice maindockerimage
+docker run -d -p 35001:6000 --name firstlogservice rincon10/sparkapplab02repo:latest
 ```
 
-```
-docker run -d -p 35002:6000 --name secondlogservice maindockerimage
-```
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/17-accesoAWS1.jpg" />
 
 
 ```
-docker run -d -p 35003:6000 --name thirdlogservice maindockerimage
+docker run -d -p 35002:6000 --name secondlogservice rincon10/sparkapplab02repo:latest
 ```
+
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/17-accesoAWS2.jpg" />
+
+```
+docker run -d -p 35003:6000 --name thirdlogservice rincon10/sparkapplab02repo:latest
+```
+
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/17-accesoAWS3.jpg" />
+
