@@ -96,11 +96,42 @@ mvn test
 
 ## Proceso de creación de la imagen
 
+Ahora crearemos la imagen de docker la cual colocaremos en docker hub
+```dockerfile
+docker build --tag docker-spark .
+```
+
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/06-docker-build.jpg" />
+
+Revisamos que la imagen se creara correctamente con el siguiente comando
+```dockerfile
+docker images
+```
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/07-docker-images.jpg" />
+ 
+Ahora establceremos una configuración por defecto establecida en el archivo docker-compose.yml
+```dockerfile
+docker-compose up -d
+```
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/08-docker-compose.jpg" />
+
 ## Publicando imagenes en DockerHub
+Ahora, lo que haremos sera que en nuestro motor de docker local crearemos una referencia a una imagen con el nombre del repositorio a donde deseo subirla:
 
-## 
+```dockerfile
+docker tag docker-spark:latest rincon10/sparkapplab02repo:latest
+```
 
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/09-docker-repository.jpg" /> 
+
+Por ultimo pushearemos la imagen a docker hub
+
+```dockerfile
+docker push rincon10/sparkapplab02repo:latest
+
+```
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/10-docker-push.jpg" />
  
 
-## Proceso de creacion de los contenedores
+## Proceso de creacion de los contenedores en AWS
 
