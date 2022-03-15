@@ -76,15 +76,12 @@ mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.App"
 ```mvn
 mvn javadoc:javadoc
 ```
-
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/05-javadoc.jpg" alt="javadoc" />
-
 La documentación se generara en la ruta
 ```
 target/site/apidocs/index.html
 ```
 
-<img src="" alt="documentacion" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/05-javadoc.jpg" alt="javadoc" />
 
 <br />
 

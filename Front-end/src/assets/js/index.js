@@ -17,7 +17,6 @@ const saveMessage = event => {
 const postMessage = event => {
     event.preventDefault();
     console.log(formValues);
-    console.log(messagesApiClient.getSomething());
 };
 
 const updateValues = (name, value) => {
@@ -29,7 +28,7 @@ const redirect = page => {
 };
 
 const clearValues = () => {
-    formValues = { message: '' };
+    formValues = { description: '' };
 };
 
 const clearHTML = () => {
