@@ -56,7 +56,7 @@ public class App {
         //CORS
         after((request, response) -> {
             response.header("Access-Control-Allow-Origin", "*");
-            response.header("Access-Control-Allow-Methods", "GET,POST");
+            response.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
         });
 
         // This only if we wanna have the front in resources
