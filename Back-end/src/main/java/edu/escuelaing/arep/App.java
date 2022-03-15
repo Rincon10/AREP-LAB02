@@ -1,6 +1,12 @@
 package edu.escuelaing.arep;
 
+import edu.escuelaing.arep.model.Message;
+import edu.escuelaing.arep.services.IConvertorService;
+import edu.escuelaing.arep.services.IMessageService;
+import edu.escuelaing.arep.services.impl.ConvertorService;
+import edu.escuelaing.arep.services.impl.MessageService;
 import org.eclipse.jetty.http.HttpStatus;
+import org.json.JSONObject;
 
 import static spark.Spark.*;
 
@@ -8,27 +14,32 @@ import static spark.Spark.*;
  * Spark Application
  */
 public class App {
-    private static String defaultPath = "/";
-    private static String getPath = "/messages";
-    private static String postPath = "/messages:message";
+    //    private static String defaultPath = "/";
+    private static String path = "/messages";
     private static String helloPath = "/hello";
+    private static IMessageService service = new MessageService();
+    private static IConvertorService convertorService = new ConvertorService();
 
     /**
      * Method that set the instances of the controllers of our API
      */
     protected static void setControllers() {
-        get(getPath, (req, res) -> {
+        get(path, (req, res) -> {
             res.type("application/json");
-            return null;
+            return service.getAllMessages().toString();
 
         });
 
-        post(postPath, (req, res) -> {
-            System.out.println(req.params(":message"));
-            return req.params(":message");
+        post(path, (req, res) -> {
+            JSONObject jsonpObject = new JSONObject(req.body());
+            Message message = new Message(jsonpObject.getString("description"));
+            service.postMessage(message);
+
+            res.status(HttpStatus.OK_200);
+            jsonpObject.put("status_code", HttpStatus.OK_200);
+            jsonpObject.put("description", "Request Successfully");
+            return jsonpObject;
         });
-
-
     }
 
     /**
@@ -65,7 +76,7 @@ public class App {
             //Using Exceptions
             exception(Exception.class, (exception, request, response) -> {
                 response.status(HttpStatus.BAD_REQUEST_400);
-//                response.body(cSvcimpl.transformToError(exception.getMessage()).toString());
+                response.body(convertorService.getError(exception.getMessage()).toString());
             });
         });
     }
