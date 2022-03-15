@@ -137,7 +137,7 @@ docker push rincon10/sparkapplab02repo:latest
 
 Ahora buscamoremos y crearemos nuestra maquina EC2 y hacemos instalacion de la imagen que tiene docker, java, etc (AMI)
 
-<img src="" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/11-aws.jpg" />
 
 
 ## Conexion 
@@ -154,7 +154,7 @@ Conéctese a la instancia mediante su DNS público:
 ssh -i "AREPLAB02.pem" ec2-user@ec2-52-207-142-166.compute-1.amazonaws.com
 ```
 
-<img src="" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/11-connnection.jpg" />
 
 ## Para instalar docker
 
@@ -179,6 +179,8 @@ sudo usermod -a -G docker ec2-user
 ```
 
 exit para que se actualicen los permisos
+
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/12-docker.jpg" />
 ## Para instalar JDK8
 
 Para tener java
@@ -191,12 +193,35 @@ Para tener javac
 sudo yum install java-1.8.0-openjdk-devel
 ```
 
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/13-java.jpg" />
 
 
+A partir de la imagen creada en Dockerhub cree una instancia de un contenedor docker independiente de la consola (opción “-d”) y con el puerto 6000 enlazado a un puerto físico de su máquina (opción -p):
+
+```
+docker run -d -p 35000:6000 --name maindockerimage rincon10/sparkapplab02repo:latest
+```
+
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/14-pulling.jpg" />
 
 
+AHORA DEBEMOS ABRIR LOS PUERTOS DE LOS GRUPOS DE SEGURIDAD
+
+si tengo al hacer docker ps
+
+numero->numero2/tcp
+
+```
+numero2 es el puerto de nuestro contendenedor
+numero es el puerto el cual se mapea para que nuestra maquina lo detecte
+```
+
+en las reglas de entrada de seguridad lo configuramos con numero
 
 
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/15-grupos.jpg" />
 
+
+verificamos que podamos acceder a nuestro contenedor
 
 
