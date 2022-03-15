@@ -135,3 +135,68 @@ docker push rincon10/sparkapplab02repo:latest
 
 ## Proceso de creacion de los contenedores en AWS
 
+Ahora buscamoremos y crearemos nuestra maquina EC2 y hacemos instalacion de la imagen que tiene docker, java, etc (AMI)
+
+<img src="" />
+
+
+## Conexion 
+
+Localice el archivo de clave privada. La clave utilizada para lanzar esta instancia es AREPLAB02.pem
+
+```
+chmod 400 AREPLAB02.pem
+```
+
+Conéctese a la instancia mediante su DNS público:
+
+```
+ssh -i "AREPLAB02.pem" ec2-user@ec2-52-207-142-166.compute-1.amazonaws.com
+```
+
+<img src="" />
+
+## Para instalar docker
+
+Actualizamos las librerias 
+```
+sudo yum update -y
+```
+
+Instalamos docker
+```
+sudo yum install docker
+```
+
+inciamos el servicio
+```
+sudo service docker start
+```
+
+configuramos para que nos pida permisos de administrador
+```
+sudo usermod -a -G docker ec2-user
+```
+
+exit para que se actualicen los permisos
+## Para instalar JDK8
+
+Para tener java
+```
+sudo yum install java-1.8.0-openjdk
+```
+
+Para tener javac
+```
+sudo yum install java-1.8.0-openjdk-devel
+```
+
+
+
+
+
+
+
+
+
+
