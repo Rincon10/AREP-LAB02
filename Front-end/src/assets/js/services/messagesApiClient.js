@@ -12,19 +12,16 @@ export const messagesApiClient = (() => {
                 method: 'GET',
                 headers: myHeader,
             });
-            console.log(response);
             if (!response.ok) throw new Error('The response failed');
             return response.json();
         },
 
         postMessage: async message => {
-            console.log(message);
             const response = await fetch(`${URL}/api/v1/messages`, {
                 method: 'POST',
                 headers: myHeader,
                 body: JSON.stringify(message),
             });
-            console.log(response);
             if (!response.ok) throw new Error('The response failed');
             return response.json();
         },

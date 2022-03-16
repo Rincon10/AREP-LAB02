@@ -6,6 +6,7 @@ let formValues;
 const form = document.getElementById('form');
 const textArea = document.getElementById('message');
 const pre = document.getElementById('code');
+const title = document.getElementById('title');
 
 //========================Functions========================
 
@@ -18,18 +19,17 @@ const updateHTML = () => {
     messagesApiClient
         .getMessages()
         .then(messages => {
-            pre.innerHTML = messages;
+            title.textContent = "Ultimos 10 mensajes encontrados:"
+            pre.textContent = JSON.stringify(messages, undefined, 2);
         })
         .catch(error => console.log(error));
 };
 
 const postMessage = event => {
     event.preventDefault();
-    console.log('entree');
     messagesApiClient
         .postMessage(formValues)
         .then(response => {
-            console.log(response);
             updateHTML();
         })
         .catch(error => console.log(error));
@@ -39,10 +39,10 @@ const updateValues = (name, value) => {
     formValues = { ...formValues, [name]: value };
 };
 
-const redirect = page => {
+/* const redirect = page => {
     window.location = `/public/${page}`;
 };
-
+ */
 const clearValues = () => {
     formValues = { description: '' };
 };
