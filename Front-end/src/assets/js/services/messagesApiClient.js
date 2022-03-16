@@ -1,6 +1,6 @@
 export const messagesApiClient = (() => {
-    /* const host = 'http://localhost:4567'; */
-    const URL = 'http://ec2-52-207-142-166.compute-1.amazonaws.com:35000';
+    /* const URL = 'http://ec2-52-207-142-166.compute-1.amazonaws.com:35000'; */
+    const URL = 'http://localhost:4567';
 
     const myHeader = new Headers();
     myHeader.set('Content-Type', 'application/json');

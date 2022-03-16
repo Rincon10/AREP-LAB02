@@ -53,12 +53,23 @@ public class App {
         //staticFileLocation("/public");
 
         //After-filters are evaluated after each request, and can read the request and read/modify the response:
-        //CORS
-        after((request, response) -> {
-            response.header("Access-Control-Allow-Origin", "*");
-            response.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-        });
+        // Allow CORS
+        options("/*",
+                (request, response) -> {
+                    String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+                    if (accessControlRequestHeaders != null) {
+                        response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+                    }
 
+                    String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+                    if (accessControlRequestMethod != null) {
+                        response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+                    }
+
+                    return "OK";
+                });
+
+        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
         // This only if we wanna have the front in resources
 //        get(defaultPath, (req, res) -> {
 //            res.redirect("/index.html");
