@@ -259,21 +259,23 @@ docker run -d -p 35003:6000 --name thirdlogservice rincon10/sparkapplab02repo:la
 
 Front sin envio de data 
 
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/18-front-0" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/18-front-0.jpg" />
 
 <br />
 
 
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/18-front-1" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/18-front-1.jpg" />
 <br />
 
 Respuesta del servidor
 
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/18-front-2" />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/18-front-2.jpg" />
 <br />
 
 Verificación de posteo de mensaje
-<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/18-front-3" />
+
+<br />
+<img src="https://github.com/Rincon10/AREP-LAB02/blob/master/resources/images/18-front-3.jpg" />
 
 
 
