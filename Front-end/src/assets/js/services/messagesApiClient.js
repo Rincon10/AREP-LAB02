@@ -1,6 +1,6 @@
 export const messagesApiClient = (() => {
     /* const URL = 'http://ec2-52-207-142-166.compute-1.amazonaws.com:35000'; */
-    const URL = 'http://localhost:4567';
+    const URL = 'http://localhost:4566';
 
     const myHeader = new Headers();
     myHeader.set('Content-Type', 'application/json');
@@ -8,7 +8,7 @@ export const messagesApiClient = (() => {
 
     return {
         getMessages: async () => {
-            const response = await fetch(`${URL}/api/v1/messages`, {
+            const response = await fetch(`${URL}/balancer`, {
                 method: 'GET',
                 headers: myHeader,
             });
@@ -17,7 +17,7 @@ export const messagesApiClient = (() => {
         },
 
         postMessage: async message => {
-            const response = await fetch(`${URL}/api/v1/messages`, {
+            const response = await fetch(`${URL}/balancer`, {
                 method: 'POST',
                 headers: myHeader,
                 body: JSON.stringify(message),
