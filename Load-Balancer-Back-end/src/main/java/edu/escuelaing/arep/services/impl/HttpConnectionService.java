@@ -5,6 +5,7 @@ import edu.escuelaing.arep.services.IHttpConnectionService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,15 +32,13 @@ public class HttpConnectionService implements IHttpConnectionService {
     }
 
     @Override
-    public String startConnection(String method) throws IOException {
+    public String startConnection(String method, String jsonInputString) throws IOException {
         con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod(method);
         con.setRequestProperty("User-Agent", USER_AGENT);
 
         if (method.equals("GET")) return getResponse();
-        return postPetition();
-
-
+        return postPetition(jsonInputString);
     }
 
 
@@ -73,7 +72,15 @@ public class HttpConnectionService implements IHttpConnectionService {
     }
 
     @Override
-    public String postPetition() throws IOException {
+    public String postPetition(String jsonInputString) throws IOException {
+        con.setRequestProperty("Content-Type", "application/json; utf-8");
+        con.setRequestProperty("Accept", "application/json");
+        con.setDoOutput(true);
+
+        try(OutputStream os = con.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
         //The following invocation perform the connection implicitly before getting the code
         int responseCode = con.getResponseCode();
         System.out.println("*****************************************************************************");

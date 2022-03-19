@@ -28,7 +28,7 @@ public class App {
 
             String path = roundRobin.getServer();
             IHttpConnectionService connectionService = new HttpConnectionService(path);
-            return connectionService.startConnection("GET");
+            return connectionService.startConnection("GET","");
         });
 
         post("", (req, res) -> {
@@ -37,7 +37,7 @@ public class App {
 
             String path = roundRobin.getServer();
             IHttpConnectionService connectionService = new HttpConnectionService(path);
-            return connectionService.startConnection("POST");
+            return connectionService.startConnection("POST", req.body());
         });
     }
 

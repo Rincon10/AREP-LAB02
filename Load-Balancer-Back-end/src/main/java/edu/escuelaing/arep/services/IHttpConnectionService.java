@@ -17,8 +17,8 @@ public interface IHttpConnectionService {
      */
     public String getResponse() throws IOException;
 
-    public String postPetition() throws IOException;
+    public String postPetition( String json) throws IOException;
 
-    public String startConnection(String method) throws IOException;
+    public String startConnection(String method, String jsonInputString) throws IOException;
 
 }
