@@ -56,16 +56,20 @@ public class MessageService implements IMessageService {
         fit.into(docs);
         // To get only the last 10 messages
         int length = docs.size();
-        for (int i = 1; i <= 10; i++) {
-            Document document = docs.get(length - i);
-            String message = document.toJson();
-            messages.add(message);
+
+        if (length <= 10) {
+            docs.forEach(document -> {
+                String message = document.toJson();
+                messages.add(message);
+            });
+        } else {
+            for (int i = 1; i <= 10; i++) {
+                Document document = docs.get(length - i);
+                String message = document.toJson();
+                messages.add(message);
+            }
         }
-        //  TO getAll the messages;
-//        docs.forEach(document -> {
-//            String message = document.toJson();
-//            messages.add(message);
-//        });
+
         return messages;
     }
 }
